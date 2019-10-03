@@ -16,19 +16,44 @@ class App extends React.Component {
     };
   }
 
-  strikeHandler = () => {
-    console.log('strike handler');
-    this.setState({ strikes: this.state.strikes + 1 
+  clearStats = () => {
+    this.setState({
+      strikes: this.strikes = 0,
+      balls: this.balls = 0,
+      foul: this.foul = 0
     });
   }
 
+  strikeHandler = () => {
+    console.log('strike handler');
+    if (this.state.strikes < 3) {
+      this.setState({ strikes: this.state.strikes + 1 
+      });
+    } else {
+      this.clearStats();
+    }
+  }
+
   ballsHandler = () => {
-    this.setState({ balls: this.state.balls + 1 });
+    if (this.state.balls < 4) {
+      this.setState({ balls: this.state.balls + 1 });
+    } else {
+      this.clearStats();
+    }
   }
 
   foulHandler = () => {
     // if foul is less than 2 equals strike else none
-    this.setState({ foul: this.state.foul + 1})
+    if (this.state.foul < 2 && this.state.strikes < 2) {
+      this.setState({ 
+        foul: this.state.foul + 1,
+        strikes: this.state.strikes + 1
+      })
+    } else {
+      this.setState({ 
+        foul: this.state.foul + 1,
+      })
+    }
   }
 
   render() {
