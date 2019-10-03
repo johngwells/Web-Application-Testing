@@ -5,7 +5,7 @@
 */
 import React from 'react';
 
-const Dashboard = ({ strikes, balls, foul }) => {
+const Dashboard = ({ strikes, balls, foul, clearStats }) => {
   return (
     <div>
       <button
@@ -19,6 +19,10 @@ const Dashboard = ({ strikes, balls, foul }) => {
       <button
         onClick={foul}>
         Foul
+      </button>
+      <button
+        onClick={clearStats}>
+        Clear Stats
       </button>
     </div>
   );

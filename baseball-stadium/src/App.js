@@ -82,6 +82,7 @@ class App extends React.Component {
             strikes={this.strikeHandler}
             balls={this.ballsHandler}
             foul={this.foulHandler}
+            clearStats={this.clearStats}
           />
         </header>
       </div>
